@@ -14,8 +14,8 @@ async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     autoHideMenuBar: true,
-    width: 1056,
-    height: 792,
+    width: 1250,
+    height: 800,
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
@@ -80,3 +80,4 @@ if (isDevelopment) {
     })
   }
 }
+

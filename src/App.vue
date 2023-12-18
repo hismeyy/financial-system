@@ -7,11 +7,14 @@
 
       <lay-body>
         <lay-header>
-          财富是选择，而不是收入。通过明智的管理和投资，创造财务自由的路程。
+          财富是选择，而不是收入。通过明智的管理和投资，是创造财务自由的路程。
         </lay-header>
 
         <lay-container fluid>
-          <router-view></router-view>
+          <lay-card>
+            <router-view></router-view>
+          </lay-card>
+
         </lay-container>
 
       </lay-body>
@@ -75,7 +78,8 @@ body {
   color: white;
 }
 .example .layui-container{
-  padding: 0;
+  padding: 20px;
   height: calc(100% - 25px);
+  background-color: #f5f5f5;
 }
 </style>
