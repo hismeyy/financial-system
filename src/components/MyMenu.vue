@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 
 const isTree = ref(true)
-const selectedKey = ref("5")
-const openKeys5 = ref(["7"])
+const selectedKey = ref("1")
+const openKeys5 = ref(["1"])
 
 </script>
 
@@ -16,20 +16,20 @@ const openKeys5 = ref(["7"])
         财务报表
       </router-link>
     </lay-menu-item>
-    <lay-sub-menu id="7">
+    <lay-sub-menu id="2">
       <template v-slot:title>
         <router-link to="">
           <lay-icon type="layui-icon-rmb"></lay-icon>
           财务管理
         </router-link>
       </template>
-      <lay-menu-item id="8">
+      <lay-menu-item id="3">
         <router-link to="">
           <lay-icon type="layui-icon-layer"></lay-icon>
           场景化
         </router-link>
       </lay-menu-item>
-      <lay-menu-item id="9">
+      <lay-menu-item id="4">
         <router-link to="">
           <lay-icon type="layui-icon-senior"></lay-icon>
           个人钱包
@@ -37,27 +37,27 @@ const openKeys5 = ref(["7"])
       </lay-menu-item>
     </lay-sub-menu>
 
-    <lay-menu-item id="10">
+    <lay-menu-item id="5">
       <router-link to="">
         <lay-icon type="layui-icon-heart"></lay-icon>
         愿望清单
       </router-link>
     </lay-menu-item>
 
-    <lay-sub-menu id="11">
+    <lay-sub-menu id="6">
       <template v-slot:title>
         <router-link to="">
           <lay-icon type="layui-icon-set"></lay-icon>
           设置
         </router-link>
       </template>
-      <lay-menu-item id="12">
+      <lay-menu-item id="7">
         <router-link to="">
           <lay-icon type="layui-icon-util"></lay-icon>
           系统设置
         </router-link>
       </lay-menu-item>
-      <lay-menu-item id="13">
+      <lay-menu-item id="8">
         <router-link to="">
           <lay-icon type="layui-icon-template-one"></lay-icon>
           字典配置
