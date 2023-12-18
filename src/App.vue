@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style>
+body {
+  user-select: none;
+}
 /* 隐藏垂直滚动条 */
 ::-webkit-scrollbar {
   width: 5px; /* 滚动条宽度 */
@@ -36,7 +39,7 @@ export default {
 
 /* 隐藏水平滚动条 */
 ::-webkit-scrollbar:horizontal {
-  height: 5px; /* 滚动条高度 */
+  height: 0; /* 滚动条高度 */
 }
 
 /* 修改滚动条轨道样式 */
