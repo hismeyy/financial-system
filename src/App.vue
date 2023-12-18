@@ -11,7 +11,7 @@
         </lay-header>
 
         <lay-container fluid>
-          内容
+          <router-view></router-view>
         </lay-container>
 
       </lay-body>
