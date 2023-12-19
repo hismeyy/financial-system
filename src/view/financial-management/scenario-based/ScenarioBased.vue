@@ -1,10 +1,46 @@
 <script setup>
+import {reactive, ref} from 'vue'
+import {layer} from "@layui/layui-vue"
 
+const scenario = reactive({
+      sceneName: "",
+      bindAccount: "",
+      budgetAmount: "",
+      currentStatus: 1
+    }
+)
+
+const layFormRef11 = ref();
+
+const visible = ref(false);
+
+const changeVisible = () => {
+  visible.value = !visible.value;
+}
+
+const deleteValue = () => {
+  layer.msg("删除成功", {time: 1000, icon: 1})
+}
+
+const action = ref([
+  {
+    text: "确认",
+    callback: () => {
+      changeVisible()
+      layer.msg("添加成功", {time: 1000, icon: 1})
+    }
+  },
+  {
+    text: "取消",
+    callback: () => {
+      changeVisible()
+    }
+  }
+])
 </script>
 
 <template>
-  <lay-button type="primary" size="sm">添加场景</lay-button>
-
+  <lay-button type="primary" size="sm" @click="changeVisible">添加场景</lay-button>
 
   <div class="scene-list">
     <div class="scene-row scene-header">
@@ -26,10 +62,34 @@
       <div class="scene-cell">
         <lay-button type="normal" size="xs">详细</lay-button>
         <lay-button type="primary" size="xs">修改</lay-button>
-        <lay-button type="danger" size="xs">删除</lay-button>
+        <lay-button type="danger" size="xs" @click="deleteValue">删除</lay-button>
       </div>
     </div>
   </div>
+
+  <lay-layer v-model="visible" :shade="false" :area="['500px', '360px']" :btn="action" id="box">
+    <div style="padding: 10px;">
+      <lay-form :model="scenario" ref="layFormRef11" required>
+        <lay-form-item label="场景名称" prop="sceneName">
+          <lay-input v-model="scenario.sceneName"></lay-input>
+        </lay-form-item>
+        <lay-form-item label="绑定账户" prop="bindAccount">
+          <lay-input v-model="scenario.bindAccount" type="password">></lay-input>
+        </lay-form-item>
+        <lay-form-item label="预算金额" prop="budgetAmount">
+          <lay-input v-model="scenario.budgetAmount"></lay-input>
+        </lay-form-item>
+        <lay-form-item label="当前状态" prop="currentStatus">
+          <lay-select v-model="scenario.currentStatus" style="width:100%;">
+            <lay-select-option value="1" label="准备开始"></lay-select-option>
+            <lay-select-option value="2" label="已经开始"></lay-select-option>
+            <lay-select-option value="3" label="已经结束"></lay-select-option>
+          </lay-select>
+        </lay-form-item>
+      </lay-form>
+    </div>
+  </lay-layer>
+
 </template>
 
 <style scoped>

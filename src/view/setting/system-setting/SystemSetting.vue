@@ -43,9 +43,9 @@
       </lay-form-item>
 
       <lay-form-item style="text-align: right;">
-        <lay-button type="primary">保存</lay-button>
-        <lay-button type="default">重置</lay-button>
-        <lay-button type="normal">同步</lay-button>
+        <lay-button type="primary" size="sm">保存</lay-button>
+        <lay-button type="default" size="sm">重置</lay-button>
+        <lay-button type="normal" size="sm">同步</lay-button>
       </lay-form-item>
     </lay-form>
   </lay-field>
