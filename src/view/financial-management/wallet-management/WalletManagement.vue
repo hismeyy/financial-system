@@ -1,53 +1,79 @@
 <script setup>
+import {reactive, ref} from 'vue'
+import {layer} from "@layui/layui-vue"
 
+const wallet = reactive({
+      name: "",
+      balance: "",
+      remark: ""
+    }
+)
+
+const layFormRef11 = ref();
+
+const visible = ref(false);
+
+const changeVisible = () => {
+  visible.value = !visible.value;
+}
+
+const deleteValue = () => {
+  layer.msg("删除成功", {time: 1000, icon: 1})
+}
+
+const action = ref([
+  {
+    text: "确认",
+    callback: () => {
+      changeVisible()
+      layer.msg("添加成功", {time: 1000, icon: 1})
+    }
+  },
+  {
+    text: "取消",
+    callback: () => {
+      changeVisible()
+    }
+  }
+])
 </script>
 
 <template>
-  <lay-button type="primary" size="sm">添加账户</lay-button>
+  <lay-button type="primary" size="sm" @click="changeVisible">添加账户</lay-button>
   <lay-row space="10" style="margin-top: 10px">
     <lay-col md="8">
       <lay-card title="招商银行" class="card">
         <div class="card-info">
-          <h3>账户余额: $1000</h3>
+          <h3>余额: $1000</h3>
           <span>
-          账户备注: 用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱量的钱用来存储自己大量的钱
+          备注: 用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱量的钱用来存储自己大量的钱
         </span>
           <div class="card-btns">
+            <lay-button type="normal" size="xs">详细</lay-button>
             <lay-button type="primary" size="xs">修改</lay-button>
-            <lay-button type="danger" size="xs">删除</lay-button>
-          </div>
-        </div>
-      </lay-card>
-    </lay-col>
-    <lay-col md="8">
-      <lay-card title="招商银行" class="card">
-        <div class="card-info">
-          <h3>账户余额: $1000</h3>
-          <span>
-          账户备注: 用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱量的钱用来存储自己大量的钱
-        </span>
-          <div class="card-btns">
-            <lay-button type="primary" size="xs">修改</lay-button>
-            <lay-button type="danger" size="xs">删除</lay-button>
-          </div>
-        </div>
-      </lay-card>
-    </lay-col>
-    <lay-col md="8">
-      <lay-card title="招商银行" class="card">
-        <div class="card-info">
-          <h3>账户余额: $1000</h3>
-          <span>
-          账户备注: 用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱用来存储自己大量的钱量的钱用来存储自己大量的钱
-        </span>
-          <div class="card-btns">
-            <lay-button type="primary" size="xs">修改</lay-button>
-            <lay-button type="danger" size="xs">删除</lay-button>
+            <lay-button type="danger" size="xs" @click="deleteValue">删除</lay-button>
           </div>
         </div>
       </lay-card>
     </lay-col>
   </lay-row>
+
+  <lay-layer v-model="visible" :shade="false" :area="['500px', '310px']" :btn="action" title="添加账户">
+    <div style="padding: 10px;">
+      <lay-form :model="wallet" ref="layFormRef11" required>
+        <lay-form-item label="账户名称" prop="walletName">
+          <lay-input v-model="wallet.name"></lay-input>
+        </lay-form-item>
+        <lay-form-item label="账户余额" prop="balance">
+          <lay-input v-model="wallet.balance">></lay-input>
+        </lay-form-item>
+        <lay-form-item label="账户备注" prop="remark">
+          <lay-input v-model="wallet.remark"></lay-input>
+        </lay-form-item>
+      </lay-form>
+    </div>
+  </lay-layer>
+
 </template>
 
 <style scoped>

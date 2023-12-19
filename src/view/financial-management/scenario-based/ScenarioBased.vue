@@ -67,7 +67,7 @@ const action = ref([
     </div>
   </div>
 
-  <lay-layer v-model="visible" :shade="false" :area="['500px', '360px']" :btn="action" id="box">
+  <lay-layer v-model="visible" :shade="false" :area="['500px', '360px']" :btn="action" title="添加场景">
     <div style="padding: 10px;">
       <lay-form :model="scenario" ref="layFormRef11" required>
         <lay-form-item label="场景名称" prop="sceneName">
